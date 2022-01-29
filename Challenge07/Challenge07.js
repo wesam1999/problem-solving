@@ -31,7 +31,7 @@ const objLat = (obj) => {
 //  Rekey is receiving info about applicants for his startup company (as array of objects), containing first name,
 //  last name, age and technology they know.
 //  Rekey only cares about the full name and the technology if the applicant have more than one year of Experience
-//
+
 //  Reformat the array of objects that you are receiving by returning a new array of objects that contain only
 //  fullName and tech if the applicant has more than one year of Experience
 
@@ -87,25 +87,34 @@ const objLat = (obj) => {
 
 // ------------------------
 const cvFormatter = (arr) => {
-    const keys = Object.keys(arr);
-    const result1 = Object.values(arr);
-   let fullName1;
-    if (result1[0] == "null"&&result1[2] > 1) {
-        fullName1 = result1[1];
-        let Narr = [`fullname: ${fullName1},`,`tech: ${result1[3]},`];
-        return Narr;
+    let returnV = [];
+    for(let i=0;i<arr.length;i++){
+    const result1 = Object.values(arr[i]);
+      
+     if(result1[1]=== null&&result1[2]>1)
+     {
+      
+    returnV.push({fullName:result1[0],tech: result1[3]});
+    
+       
+     
+     }
+     else if(result1[2]>1)
+     {    
+     let fullNameV =result1[0]+" "+result1[1];
+    returnV.push({fullName:fullNameV,tech: result1[3]});
+    
+       
+  
+       }
+
+    //  console.log(result1[1]);
+    
+    
     }
-    else if (result1[1] == "null"&&result1[2] > 1) {
-        fullName1 = result1[0];
-        let Narr = [`fullname: ${fullName1},`,`tech: ${result1[3]},`];
-        return Narr;
-    }
-    else if(result1[2] > 1){
-        fullName1 = result1[0] + " " + result1[1];
-        let Narr = [`fullname: ${fullName1},`,`tech: ${result1[3]},`];
-        return Narr;
-    }
-        
+  
+
+  return returnV;
     
     
     // write your code here
@@ -132,19 +141,30 @@ const cvFormatter = (arr) => {
 
 // ------------------------
 const applicationsStatics = (arr) => {
-    const keys = Object.keys(arr);
-    const result1 = Object.values(arr);
-if(keys=="null"||keys==""&&result1>1)
-{
+    c
+    returnV={};
+    const result1 = Object.values(result);
+     const result2 = Object.keys(result);
+for(let i=0;i<Object.keys(result).length;i++){
+  
+    //  console.log(result2.length);
+ if(result1[i]<1 && result1[i] != null && result2[i]!="")
+ {
+  
+    
+    // returnV.push({result2[i]:result1[i]} );
 
-
+ }
+    else{
+      
+   
+    }
+  
 }
-else{
+// returnV.push({sadsad:result1});
+  console.log(returnV);
 
-let result=`${keys}: ${result1},`;
-
-return result ;
-}
+// console.log(result2);
 
     // write your code here
 };
@@ -153,7 +173,7 @@ return result ;
 //
 //  A Certain School principal wants to calculate the average score of each class in each grade in the school
 //  so he requested a programmer to solve this issue for him instead of doing it again every time
-//
+
 //  given the school data, calculate the average score of the students of each class in each grade
 //  then change the avg value for the class
 //  EX:
@@ -271,15 +291,7 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-   let a=0;
-  let  b= data.grades;
-
-    for(let i=0; i<classScores.lenght();i++)
-    {
-   a+= classScores[i]
-   let avgI=a/classScores.lenght();
-}
-
+ 
     // write your code here
 };
 
